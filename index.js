@@ -16,10 +16,6 @@ import {
 import { handleValidationsErrors, checkAuth } from './utils/index.js';
 import cors from 'cors';
 
-import authRoute from './routes/auth.js';
-import postRoute from './routes/posts.js';
-import commentRoute from './routes/comments.js';
-
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB ok'))
@@ -44,10 +40,6 @@ const upload = multer({ storage });
 app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static('uploads'));
-
-// app.use('/auth', authRoute)
-// app.use('/posts', postRoute)
-// app.use('/comments', commentRoute)
 
 app.post(
   '/auth/login',
