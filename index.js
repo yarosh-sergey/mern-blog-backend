@@ -16,6 +16,9 @@ import {
 import { handleValidationsErrors, checkAuth } from './utils/index.js';
 import cors from 'cors';
 import timeout from 'connect-timeout';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 mongoose
   .connect(process.env.MONGODB_URI)
