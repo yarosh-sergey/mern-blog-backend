@@ -45,7 +45,7 @@ function haltOnTimedout (req, res, next) {
   if (!req.timedout) next()
 }
 
-// app.use(timeout('15s'))
+app.use(timeout('15s'))
 app.use(express.json());
 // app.use(haltOnTimedout)
 app.use(cors());
