@@ -40,8 +40,11 @@ const upload = multer({ storage });
 
 app.use(timeout('15s'))
 app.use(express.json());
+app.use(haltOnTimedout)
 app.use(cors());
+app.use(haltOnTimedout)
 app.use('/uploads', express.static('uploads'));
+app.use(haltOnTimedout)
 
 app.post(
   '/auth/login',
