@@ -38,6 +38,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+function haltOnTimedout (req, res, next) {
+  if (!req.timedout) next()
+}
+
 app.use(timeout('15s'))
 app.use(express.json());
 app.use(haltOnTimedout)
